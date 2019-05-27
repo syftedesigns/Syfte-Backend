@@ -1,0 +1,83 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm text-center">
+                <mat-tab-group>
+                    <mat-tab label="Cliente Soluclic">
+                        <mat-card>
+                            <mat-card-title>
+                                <div class="space-20"></div>
+                                <h5 class="font-25">
+                                    {{ObjectClient.client_id.firstname}}&nbsp;{{ObjectClient.client_id.lastname}}
+                                </h5>
+                            </mat-card-title>
+                            <mat-card-content>
+                                <address class="text-center">
+                                <mat-chip>
+                                    Teléfono:
+                                </mat-chip>
+                                {{ObjectClient.client_id.telephone}}
+                                <br>
+                                <mat-chip>
+                                    Estado del documento:&nbsp;
+                                    <span matTooltip="Debes habilitar este documento en caso de que sea válido" class="mdi mdi-alert-circle warn-color"></span>
+                                </mat-chip> {{ObjectClient.estado | boolean}} <br>
+                                <mat-chip>
+                                    Email:
+                                </mat-chip> 
+                                {{ObjectClient.client_id.email}}
+                                <br>
+                                <mat-chip>
+                                    Dirección:
+                                </mat-chip>
+                                {{ObjectClient.client_id.address_1}}
+                                <br>
+                                <mat-chip>
+                                    Dirección 2:
+                                </mat-chip>
+                                {{ObjectClient.client_id.address_2}}
+                                <br>
+                                <mat-chip>
+                                    País:
+                                </mat-chip>
+                                {{ObjectClient.client_id.country_id}}
+                                <br>
+                                <mat-chip>
+                                    Ciudad:
+                                </mat-chip>
+                                {{ObjectClient.client_id.city}}
+                                <br>
+                                <mat-chip>
+                                    Código Postal / Zip:
+                                </mat-chip>
+                                {{ObjectClient.client_id.postcode}}
+                              </address>
+                                <div class="space-10"></div>
+                            </mat-card-content>
+                        </mat-card>
+                    </mat-tab>
+                    <mat-tab label="Documento">
+                        <mat-card>
+                            <img style="border: 1px solid #cecece" class="thumbnail w-50" [src]="ObjectClient.img">
+                            <form (ngSubmit)="ValidateDoc(legal);" ngNativeVaidate #legal="ngForm">
+                                <div class="form-group">
+                                    <mat-form-field class="w-100">
+                                        <mat-select [(ngModel)]="ObjectClient.estado" name="estado" required placeholder="Validar documento">
+                                            <mat-option value="habilitado">Aceptar</mat-option>
+                                            <mat-option value="rechazado">Rechazar</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" mat-raised-button color="primary" class="btn-block col-md-4 primary-bg-color">
+                                    Guardar cambios
+                                  </button>
+                                </div>
+                            </form>
+                        </mat-card>
+                    </mat-tab>
+                </mat-tab-group>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,49 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Nombre. </th>
+        <td mat-cell *matCellDef="let element">
+            <span class="Gotham-Book">
+                {{element.client_name}}
+            </span>
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let element">
+            <span class="Gotham-Book">
+                {{element.client_email}}
+            </span>
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="campaign">
+        <th mat-header-cell *matHeaderCellDef> Campaña </th>
+        <td mat-cell *matCellDef="let element">
+            <mat-chip color="warn" selected>
+                <span class="LinotteRegular">{{element.client_campaign}}</span>
+            </mat-chip>
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef> Fecha de afiliación </th>
+        <td mat-cell *matCellDef="let element">
+            <mat-chip>
+                <span class="LinotteRegular">{{element.date | date}}</span>
+            </mat-chip>
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let element; let i = index;">
+            <mat-chip-list>
+                <mat-chip (click)="popupProfile(element);" color="accent">
+                    <i class="mdi mdi-eye"></i>
+                </mat-chip>
+                <mat-chip (click)="ModalRemoveSubscription(element, i);" color="warn" selected>
+                    <i class="mdi mdi-delete"></i>
+                </mat-chip>
+            </mat-chip-list>
+        </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

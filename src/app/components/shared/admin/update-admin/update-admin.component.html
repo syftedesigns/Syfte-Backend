@@ -1,0 +1,41 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <form id="admin-form" ngNativeValidate #editAdmin="ngForm" (ngSubmit)="UpdateAdmin(editAdmin);">
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-sm">
+                                <mat-form-field appearance="legacy">
+                                    <mat-label>
+                                        Editar email
+                                    </mat-label>
+                                    <input [(ngModel)]="Admin.admin_email" name="admin_email" matInput required type="email">
+                                    <mat-hint class="text-muted text-center">No puedes actualizar el resto de campos por estabilidad en el sistema, si deseas puedes crear otro</mat-hint>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm">
+                                <mat-form-field appearance="legacy">
+                                    <mat-label>
+                                        Editar prioridad
+                                    </mat-label>
+                                    <mat-select [(ngModel)]="Admin.admin_priority" required name="admin_priority" placeholder="Prioridad">
+                                        <mat-option value="1">Todas las funciones</mat-option>
+                                        <mat-option value="2">Email</mat-option>
+                                        <mat-option value="3">Desactivado</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="space-45"></div>
+                        <div class="form-group">
+                            <button class="btn-block" mat-raised-button color="warn" type="submit">
+                            Editar administrador
+                          </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

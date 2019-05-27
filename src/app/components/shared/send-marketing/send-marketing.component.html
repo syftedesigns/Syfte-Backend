@@ -1,0 +1,113 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm text-center">
+                <mat-tab-group>
+                    <mat-tab label="Datos de afiliación">
+                        <div class="space-15"></div>
+                        <mat-card class="text-left">
+                            <mat-card-title>
+                                {{data.client_name}}
+                            </mat-card-title>
+                            <mat-card-subtitle>
+                                <mat-chip>
+                                    Email:
+                                </mat-chip>&nbsp;{{data.client_email}}
+                            </mat-card-subtitle>
+                            <mat-card-subtitle>
+                                <mat-chip>
+                                    Campaña:
+                                </mat-chip>&nbsp; {{data.client_campaign}}
+                            </mat-card-subtitle>
+                            <mat-card-subtitle>
+                                <mat-chip>
+                                    Fecha de afiliación:
+                                </mat-chip>&nbsp; {{data.date | date}}
+                            </mat-card-subtitle>
+                            <mat-card-subtitle>
+                                <mat-chip>
+                                    Bono de descuento:
+                                </mat-chip>&nbsp;
+                                <span [innerHTML]="data.client_coupon" *ngIf="data.client_coupon"></span>
+                                <span *ngIf="!data.client_coupon">
+                                  No aplica
+                                </span>
+                            </mat-card-subtitle>
+                            <h5 class="text-center">
+                                Solicitud
+                            </h5>
+                            <mat-card-content class="text-center">
+                                <p [innerHTML]="data.client_service"></p>
+                            </mat-card-content>
+                        </mat-card>
+                    </mat-tab>
+                    <mat-tab label="Mail">
+                        <div class="space-15"></div>
+                        <mat-card class="text-left">
+                            <mat-card-title>
+                                <h5>
+                                    Enviar un email personalizado
+                                </h5>
+                            </mat-card-title>
+                            <form id="mailForm" ngNativeValidate #mailForm="ngForm" (ngSubmit)="sendToInbox(mailForm);">
+                                <div class="form-container">
+                                    <div class="form-group">
+                                        <mat-form-field class="w-100">
+                                            <input name="subject" ngModel required class="Gotham-Book" matInput placeholder="Asunto">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="form-group">
+                                        <mat-form-field *ngIf="!displayEditor" class="w-100 mg-form">
+                                            <mat-label>Texto del mensaje</mat-label>
+                                            <textarea name="message" required ngModel class="Gotham-Book" matInput></textarea>
+                                            <mat-icon (click)="DisplayEditor();" matTooltip="Abrir el editor de texto" matTooltipPosition="below" matSuffix>apps</mat-icon>
+                                        </mat-form-field>
+                                        <mat-icon *ngIf="displayEditor" (click)="DisplayEditor();" matTooltip="Ocultar el editor de texto" matTooltipPosition="below" matSuffix>grid_off</mat-icon>
+                                        <editor required name="message" ngModel *ngIf="displayEditor" apiKey="phy8m142mtqzesk8drtcahuvo9p5coyzr9hi7bp4ro4yiolp" [init]="{plugins: 'link'}"></editor>
+                                    </div>
+                                    <div class="form-group">
+                                        <mat-form-field class="w-100 mg-form">
+                                            <mat-select name="emailType" required ngModel placeholder="Tipo de email">
+                                                <mat-option value="1">Mensaje</mat-option>
+                                                <mat-option value="2">Branding</mat-option>
+                                                <mat-option value="3">Marketing</mat-option>
+                                                <mat-option value="4">App</mat-option>
+                                                <mat-option value="5">Ecommerce</mat-option>
+                                                <mat-option value="6">Web</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-row">
+                                            <div class="col-sm">
+                                                <mat-form-field class="w-100">
+                                                    <mat-label>Enviar un archivo&nbsp;<span style="font-size: 12px !important" class="text-muted">(Opcional)</span></mat-label>
+                                                    <input name="filename" [(ngModel)]="filename" disabled matInput placeholder="Placeholder">
+                                                    <mat-icon matTooltip="Para enviar un adjunto personalizado, ejem: presupuesto, remarketing, docs" matTooltipPosition="below" matSuffix>report</mat-icon>
+                                                </mat-form-field>
+                                            </div>
+                                            <div class="col-sm">
+                                                <button onclick="$('#fileId').trigger('click');" type="button" mat-raised-button color="default">
+                                                Adjuntar&nbsp;
+                                                <mat-icon>attachment</mat-icon>
+                                              </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <fieldset class="hide">
+                                        <input [(ngModel)]="Customer.client_name" name="client_name" type="hidden">
+                                        <input [(ngModel)]="Customer.client_email" name="client_email" type="hidden">
+                                        <input (change)="FileValue($event.target.files[0]);" ngModel id="fileId" type="file" name="file">
+                                    </fieldset>
+                                    <div class="form-group">
+                                        <button color="warn" class="btn-block" mat-raised-button type="submit">Enviar email</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </mat-card>
+                    </mat-tab>
+                </mat-tab-group>
+            </div>
+        </div>
+    </div>
+</section>

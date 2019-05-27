@@ -1,0 +1,202 @@
+<mat-card class="example-card">
+    <mat-card-header>
+        <div mat-card-avatar>
+            <a [href]="thumbProfile" target="_blank">
+                <img class="img-thumbnail" [src]="thumbProfile" [alt]="Profile.firstname + Profile.lastname">
+            </a>
+        </div>
+        <mat-card-title>Carlos Estarita</mat-card-title>
+        <mat-card-subtitle>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-1">
+                        <span class="mdi mdi-star"></span>
+                    </div>
+                    <div class="col-md-1">
+                        <span class="mdi mdi-star"></span>
+                    </div>
+                    <div class="col-md-1">
+                        <span class="mdi mdi-star"></span>
+                    </div>
+                    <div class="col-md-1">
+                        <span class="mdi mdi-star"></span>
+                    </div>
+                    <div class="col-md-1">
+                        <span class="mdi mdi-star"></span>
+                    </div>
+                </div>
+            </div>
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm text-center">
+                    <h5>
+                        Datos personales
+                    </h5>
+                    <div class="row">
+                        <div class="col-sm">
+                            <mat-chip>
+                                Nombre:
+                            </mat-chip>
+                            <span>
+                              {{Profile.firstname}}&nbsp;{{Profile.lastname}}
+                            </span>
+                        </div>
+                        <div class="col-sm">
+                            <mat-chip>
+                                Email:
+                            </mat-chip>
+                            <span>
+                            {{Profile.email}}
+                          </span>
+                        </div>
+                    </div>
+                    <div class="space-10"></div>
+                    <mat-divider></mat-divider>
+                    <div class="space-20"></div>
+                    <div class="row text-center">
+                        <div style="margin-left: -3%" class="col-sm">
+                            <mat-chip>
+                                Teléfono:
+                            </mat-chip>
+                            <span>
+                            {{Profile.telephone}}
+                          </span>
+                        </div>
+                        <div style="position: relative; left: -7%" class="col-sm">
+
+                            Estado:
+                            <mat-chip *ngIf="Profile.status === '0'" color="default" selected>
+                                Desactivado
+                            </mat-chip>
+                            <mat-chip *ngIf="Profile.status === '1'" class="bg-success text-white">
+                                Activado
+                            </mat-chip>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="addr !== null" class="col-sm">
+                    <h5 class="text-center">
+                        Datos de ubicación
+                    </h5>
+                    <div class="row">
+                        <div class="col-sm">
+                            <mat-chip>
+                                Dirección:
+                            </mat-chip>
+                            <span>
+                                {{addr.address_1}}
+                            </span>
+                            <br *ngIf="addr.address_2 !== ''">
+                            <span *ngIf="addr.address_2 !== ''">
+                                {{addr.address_2}}
+                            </span>
+                        </div>
+                        <div class="col-sm">
+                            <mat-chip>
+                                Ciudad:
+                            </mat-chip>
+                            <span>
+                            {{addr.city}}
+                          </span>
+                        </div>
+                    </div>
+                    <div class="space-20"></div>
+                    <div class="row text-center">
+                        <div class="col-sm text-left">
+                            <mat-chip>
+                                País & Región:
+                            </mat-chip>
+                            <span>
+                            {{addr.iso_code_3}}&nbsp;-&nbsp;{{addr.name}}
+                          </span>
+                        </div>
+                        <div class="col-sm">
+                            <mat-chip>
+                                Código postal / zip:
+                            </mat-chip>
+                            <span>
+                            {{addr.postcode}}
+                          </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- vehiculo -->
+            <div class="space-40"></div>
+            <div class="col-sm">
+                <h5 class="text-center">
+                    Vehiculo
+                </h5>
+                <div class="row text-center">
+                    <div class="col-sm">
+                        <mat-chip>
+                            Nombre:
+                        </mat-chip>
+                        <span>
+                          Chevrolet Spark
+                        </span>
+                    </div>
+                    <div class="col-sm">
+                        <mat-chip>
+                            Placa:
+                        </mat-chip>
+                        <span>
+                          XARS5
+                      </span>
+                    </div>
+                </div>
+                <div class="space-10"></div>
+                <mat-divider></mat-divider>
+                <div class="space-20"></div>
+                <div class="row text-center">
+                    <div style="position: relative; left: -3%;" class="col-sm">
+                        <mat-chip>
+                            Modelo:
+                        </mat-chip>
+                        <span>
+                        Spark
+                      </span>
+                    </div>
+                    <div class="col-sm">
+                        <mat-chip>
+                            Estado:
+                        </mat-chip>
+                        <span>
+                        Activo
+                      </span>
+                    </div>
+                </div>
+            </div>
+            <!-- end vehiculo -->
+            <!-- form habilitar -->
+            <div class="space-30"></div>
+            <div class="row">
+                <div class="col-sm text-center">
+                    <h5>
+                        Habilitación de usuario&nbsp;
+                        <span matTooltip="Asegurate que el cliente cargo los documentos y habilitalos, una vez hecho ese paso, asegurate de activar/desactivar el cliente según sea correspondiente para que pueda trabajar en Soluclic" class="mdi mdi-alert-circle warn-color"></span>
+                    </h5>
+                    <form ngNativeValidate (ngSubmit)="activateUser(activation);" #activation="ngForm">
+                        <mat-form-field class="w-100">
+                            <mat-select required (valueChange)="canActivateUser($event)" ngModel name="user_active" placeholder="Usuario capacitado">
+                                <mat-option value="1">Activado</mat-option>
+                                <mat-option value="0">Desactivado</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field class="w-100">
+                            <mat-select required ngModel name="vehicle_active" placeholder="Vehiculo capacitado">
+                                <mat-option value="1">Activado</mat-option>
+                                <mat-option value="0">Desactivado</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <button type="submit" [disabled]="!canActivate" color="warn" selected mat-raised-button class="btn-block text-white col-md-4">Actualizar</button>
+                    </form>
+                </div>
+            </div>
+            <!-- end form habilitar -->
+        </div>
+    </mat-card-content>
+</mat-card>

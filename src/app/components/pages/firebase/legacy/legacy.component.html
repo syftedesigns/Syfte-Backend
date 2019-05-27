@@ -1,0 +1,46 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="Nombre">
+        <th mat-header-cell *matHeaderCellDef> Nombre. </th>
+        <td mat-cell *matCellDef="let element">{{element.client_id.firstname}}&nbsp;{{element.client_id.lastname}}</td>
+    </ng-container>
+    <ng-container matColumnDef="Tipo de documento">
+        <th mat-header-cell *matHeaderCellDef> Tipo de documento </th>
+        <td mat-cell *matCellDef="let element">
+            <mat-chip class="primary-bg-color text-white text-center" color="primary">
+                {{element.documento}}
+            </mat-chip>
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="Estado del documento">
+        <th mat-header-cell *matHeaderCellDef> Estado del documento </th>
+        <td mat-cell *matCellDef="let element">
+            <mat-chip *ngIf="element.estado" class="bg-success" selected>
+                {{element.estado | boolean}}
+            </mat-chip>
+            <mat-chip *ngIf="!element.estado" color="warn" selected>
+                {{element.estado | boolean}}
+            </mat-chip>
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="Fecha">
+        <th mat-header-cell *matHeaderCellDef> Fecha de envío </th>
+        <td mat-cell *matCellDef="let element">
+            {{element.client_id.date_added | date}}
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="Action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let element; let i = index;">
+            <mat-chip-list>
+                <mat-chip (click)="popupLegal(element, i);" color="accent">
+                    <i class="mdi mdi-eye"></i>
+                </mat-chip>
+                <mat-chip (click)="deleteDoc(element, i);" class="warn-bg-color text-white" color="danger">
+                    <i class="mdi mdi-delete"></i>
+                </mat-chip>
+            </mat-chip-list>
+        </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

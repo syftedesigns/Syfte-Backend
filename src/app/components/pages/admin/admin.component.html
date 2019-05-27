@@ -1,0 +1,49 @@
+<div style="text-align: right">
+    <button (click)="CreateAdmin();" class="primary-bg-color" mat-fab color="accent">
+        <span class="mdi mdi-plus-circle text-white font-20"></span>
+    </button>
+</div>
+<div class="space-15"></div>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> administrador. </th>
+        <td mat-cell *matCellDef="let element">
+            <span class="Gotham-Book">
+                {{element.admin_name}}
+            </span>
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let element">
+            <span class="Gotham-Book">
+                {{element.admin_email}}
+            </span>
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="priority">
+        <th mat-header-cell *matHeaderCellDef> Prioridad </th>
+        <td mat-cell *matCellDef="let element">
+            <mat-chip color="warn" selected>
+                <span class="LinotteRegular">{{element.admin_priority}}</span>
+            </mat-chip>
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let element; let i = index;">
+            <mat-chip-list>
+                <mat-chip (click)="popupProfile(element);" color="accent">
+                    <i class="material-icons">
+                        edit
+                    </i>
+                </mat-chip>
+                <mat-chip (click)="ModalRemoveSubscription(element, i);" color="warn" selected>
+                    <i class="mdi mdi-delete"></i>
+                </mat-chip>
+            </mat-chip-list>
+        </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

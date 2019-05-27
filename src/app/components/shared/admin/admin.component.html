@@ -1,0 +1,50 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <form #admin="ngForm" ngNativeValidate (ngSubmit)="CreateNewAdmin(admin);">
+                    <div class="form-group">
+                        <mat-form-field class="w-100" appearance="legacy">
+                            <mat-label>Nombre</mat-label>
+                            <input type="text" required name="admin_name" ngModel matInput>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-group">
+                        <mat-form-field class="w-100 mg-form" appearance="legacy">
+                            <mat-label>Email</mat-label>
+                            <input type="email" required name="admin_email" ngModel matInput>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-group">
+                        <mat-form-field class="w-100 mg-form" appearance="legacy">
+                            <mat-label>Username</mat-label>
+                            <input type="text" required name="admin_username" ngModel matInput>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-group">
+                        <mat-form-field class="w-100 mg-form" appearance="legacy">
+                            <mat-label>Contraseña</mat-label>
+                            <input type="text" required name="admin_pwd" [(ngModel)]="PasswordGenerated" matInput>
+                            <mat-icon (click)="PwdGenerator(10);" matTooltipPosition="right" matTooltip="Generar una contraseña" matSuffix>vpn_key</mat-icon>
+                            <mat-hint *ngIf="PasswordGenerated !== ''">Guarda esta contraseña o enviasela al nuevo administrador una vez lo hayas registrado.</mat-hint>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-group">
+                        <mat-form-field class="w-100 mg-form">
+                            <mat-select required name="admin_priority" ngModel placeholder="Prioridad">
+                                <mat-option value="1">Todas las funciones</mat-option>
+                                <mat-option value="2">Email</mat-option>
+                                <mat-option value="3">Desactivado</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-group">
+                        <button [disabled]="loader" type="submit" mat-raised-button class="btn-block" color="warn">
+                        Asignar
+                      </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

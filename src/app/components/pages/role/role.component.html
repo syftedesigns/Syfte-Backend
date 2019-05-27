@@ -1,0 +1,32 @@
+<div style="text-align: right">
+    <button (click)="editRole();" class="primary-bg-color" mat-fab color="accent">
+        <span class="mdi mdi-plus-circle text-white font-20"></span>
+    </button>
+</div>
+<div class="space-10"></div>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="#">
+        <th mat-header-cell *matHeaderCellDef> #. </th>
+        <td mat-cell *matCellDef="let element">{{element.role_id}}</td>
+    </ng-container>
+    <ng-container matColumnDef="Rol">
+        <th mat-header-cell *matHeaderCellDef> Rol </th>
+        <td mat-cell *matCellDef="let element">{{element.role_name}}</td>
+    </ng-container>
+    <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let element">
+            <mat-chip-list>
+                <mat-chip (click)="editRole(element);" color="accent">
+                    <i class="mdi mdi-lead-pencil"></i>
+                </mat-chip>
+                <mat-chip (click)="ConfirmDeleteItem(element);" class="warn-bg-color text-white" color="danger">
+                    <i class="mdi mdi-delete"></i>
+                </mat-chip>
+            </mat-chip-list>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

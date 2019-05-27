@@ -1,0 +1,44 @@
+<!--<div style="text-align: right">
+    <button (click)="popupStoreFront();" class="primary-bg-color" mat-fab color="accent">
+            <span class="mdi mdi-plus-circle text-white font-20"></span>
+        </button>
+</div>
+<div class="space-10"></div>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="Punto">
+        <th mat-header-cell *matHeaderCellDef> Tipo de marcador. </th>
+        <td mat-cell *matCellDef="let element">
+            <mat-chip color="warn" selected>
+                {{element.tipo}}
+            </mat-chip>
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="Latitud">
+        <th mat-header-cell *matHeaderCellDef> Latitud </th>
+        <td mat-cell *matCellDef="let element">
+            {{element.Lat}}
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="Longitud">
+        <th mat-header-cell *matHeaderCellDef> Longitud </th>
+        <td mat-cell *matCellDef="let element">
+            {{element.Lng}}
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let element; let i = index">
+            <mat-chip-list>
+                <mat-chip color="default" selected>
+                    <i class="mdi mdi-eye"></i>
+                </mat-chip>
+                <mat-chip (click)="deleteLocation(element, i);" class="warn-bg-color text-white" color="danger">
+                    <i class="mdi mdi-delete"></i>
+                </mat-chip>
+            </mat-chip-list>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>-->

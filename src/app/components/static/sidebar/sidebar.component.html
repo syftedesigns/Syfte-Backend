@@ -1,0 +1,42 @@
+<aside style="background-color: #1c2128;" class="left-sidebar">
+    <!-- Sidebar scroll-->
+    <div class="scroll-sidebar">
+        <!-- Sidebar navigation-->
+        <nav style="background-color: #1c2128;" class="sidebar-nav">
+            <ul id="sidebarnav">
+                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-account-box"></i>
+                    <span class="hide-menu">
+                    Clientes de Syfte
+                    <span class="label label-rouded label-themecolor pull-right">
+                        2
+                    </span>
+                </span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a [routerLinkActive]="['active']" [routerLink]="['/']">Clientes Afiliados </a></li>
+                        <li><a [routerLinkActive]="['active']" [routerLink]="['/newsletter']">Subscriptores</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
+                        <i class="mdi mdi-web"></i><span class="hide-menu">Administración</span></a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a [routerLinkActive]="['active']" [routerLink]="['/admin']">Administradores</a></li>
+                    </ul>
+                </li>
+                <!--<li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-cloud-sync"></i><span class="hide-menu">
+                    Cloud
+                </span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a [routerLinkActive]="['active']" [routerLink]="['/alianza']">Cargar archivos JSON</a></li>
+                        <li><a [routerLinkActive]="['active']" [routerLink]="['/map']">Bodegas</a></li>
+                        <li><a [routerLinkActive]="['active']" [routerLink]="['/legal']">Documentos</a></li>
+                    </ul>
+                </li>-->
+            </ul>
+        </nav>
+        <!-- End Sidebar navigation -->
+    </div>
+    <!-- End Sidebar scroll-->
+</aside>

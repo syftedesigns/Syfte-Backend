@@ -1,0 +1,103 @@
+<!-- Form -->
+<div class="d-flex align-items-center position-relative height-lg-100vh">
+    <div class="col-lg-5 col-xl-4 d-none d-lg-flex align-items-center gradient-half-primary-v1 height-lg-100vh px-0">
+        <div class="w-100 p-5">
+            <!-- SVG Quote -->
+            <figure class="text-center mb-5 mx-auto">
+                <a href="https://www.syftedesigns.com" target="_blank">
+                    <img src="./assets/images/logo-white.png" alt="Syfte brand logo">
+                </a>
+            </figure>
+            <!-- End SVG Quote -->
+            <!-- Testimonials Carousel Main -->
+            <div id="testimonialsNavMain" class="js-slick-carousel u-slick mb-4 slick-initialized slick-slider" data-infinite="true" data-autoplay="true" data-speed="5000" data-fade="true" data-nav-for="#testimonialsNavPagination">
+                <div class="slick-list draggable">
+                    <div class="slick-track" style="opacity: 1; width: 1728px;">
+                        <div class="js-slide slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 576px; position: relative; left: 0px; top: 0px; z-index: 999; opacity: 1; height: auto;" tabindex="0">
+                            <!-- Testimonials -->
+                            <div class="w-md-80 w-lg-60 text-center mx-auto">
+                                <blockquote class="h5 text-white font-weight-normal mb-4">Sistema de Marketing de Syfte Designs</blockquote>
+                                <h1 class="h6 text-white-70">Solo para uso administrativo</h1>
+                            </div>
+                            <!-- End Testimonials -->
+                        </div>
+                        <div class="js-slide slick-slide" data-slick-index="1" aria-hidden="true" style="width: 576px; position: relative; left: -576px; top: 0px; z-index: 998; opacity: 0; height: auto; transition: opacity 500ms ease 0s;" tabindex="-1">
+                            <!-- Testimonials -->
+                            <div class="w-md-80 w-lg-60 text-center mx-auto">
+                                <blockquote class="h5 text-white font-weight-normal mb-4">It's beautiful and the coding is done quickly and seamlessly. Keep it up!</blockquote>
+                                <h2 class="h6 text-white-70">James Austin, Slack</h2>
+                            </div>
+                            <!-- End Testimonials -->
+                        </div>
+                        <div class="js-slide slick-slide" data-slick-index="2" aria-hidden="true" style="width: 576px; position: relative; left: -1152px; top: 0px; z-index: 998; opacity: 0; height: auto; transition: opacity 500ms ease 0s;" tabindex="-1">
+                            <!-- Testimonials -->
+                            <div class="w-md-80 w-lg-60 text-center mx-auto">
+                                <blockquote class="h5 text-white font-weight-normal mb-4">I love Front! I love the ease of use, I love the fact that I have total creative freedom...</blockquote>
+                                <h3 class="h6 text-white-70">Charlotte Moore, Amazon</h3>
+                            </div>
+                            <!-- End Testimonials -->
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+            <!-- End Testimonials Carousel Main -->
+            <!-- Clients -->
+            <div class="position-absolute right-0 bottom-0 left-0 text-center p-5">
+                <h4 class="h6 text-white-70 mb-3">Front partners</h4>
+                <div class="d-flex justify-content-center">
+                    <div class="mx-4">
+                        <img class="u-clients" src="./assets/images/svg/clients-logo/slack-white.svg" alt="Image Description">
+                    </div>
+                    <div class="mx-4">
+                        <img class="u-clients" src="./assets/images/svg/clients-logo/google-white.svg" alt="Image Description">
+                    </div>
+                    <div class="mx-4">
+                        <img class="u-clients" src="./assets/images/svg/clients-logo/spotify-white.svg" alt="Image Description">
+                    </div>
+                </div>
+            </div>
+            <!-- End Clients -->
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row no-gutters">
+            <div class="col-md-8 col-lg-7 col-xl-6 offset-md-2 offset-lg-2 offset-xl-3 space-3 space-lg-0">
+                <!-- Form -->
+                <form id="backend-auth" #login="ngForm" ngNativeValidate (ngSubmit)="LoginAdmin(login);" class="js-validate mt-5">
+                    <div class="mb-7">
+                        <h2 class="h3 text-primary font-weight-normal mb-0">
+                            <span class="font-weight-semi-bold">
+                                Bienvenido
+                            </span>
+                        </h2>
+                        <p>Accede a tu cuenta de administrador.</p>
+                    </div>
+                    <div class="js-form-message form-group">
+                        <label class="form-label" for="signinSrEmail">Usuario</label>
+                        <input ngModel type="text" class="form-control" name="USERNAME" id="signinSrEmail" placeholder="Usuario" aria-label="Usuario" required="">
+                    </div>
+                    <div class="js-form-message form-group">
+                        <label class="form-label" for="signinSrPassword">
+                    <span class="d-flex justify-content-between align-items-center">
+                      Contraseña
+                    </span>
+                  </label>
+                        <input ngModel type="password" class="form-control" name="PWD" id="signinSrPassword" placeholder="********" aria-label="********" required="">
+                    </div>
+                    <div class="row align-items-center mb-5">
+                        <div class="col-12 text-right">
+                            <button type="submit" class="btn btn-primary transition-3d-hover">Login</button>
+                        </div>
+                    </div>
+                </form>
+                <!-- End Form -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Form -->

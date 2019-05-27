@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm text-center">
+            <h5 *ngIf="updatingSrv">
+                Editar {{SrvName}}
+            </h5>
+            <h5 *ngIf="!updatingSrv">
+                Crear nuevo Servicio
+            </h5>
+            <form ngNativeValidate #service="ngForm" (ngSubmit)="createNewService(service);">
+                <p class="text-center">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Servicio nuevo</mat-label>
+                        <input [(ngModel)]="SrvName" required name="SRV_NAME" matInput [placeholder]="SrvName">
+                        <mat-icon matSuffix>directions_run</mat-icon>
+                    </mat-form-field>
+                </p>
+                <fieldset>
+                    <input [(ngModel)]="srv_id" name="srv_id" type="hidden">
+                </fieldset>
+                <button type="submit" mat-raised-button class="primary-bg-color btn-block text-white">Actualizar</button>
+            </form>
+        </div>
+    </div>
+</div>

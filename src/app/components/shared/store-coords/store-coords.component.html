@@ -1,0 +1,37 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm text-center">
+                <h5>
+                    Agregar Punto de interés;&nbsp;
+                    <span matTooltip="Utiliza esta herramienta para poder cargar puntos de interés en el mapa de los delivery" class="mdi mdi-alert-circle"></span>
+                </h5>
+                <div class="space-30"></div>
+                <form ngNativeValidate #mapGL="ngForm" (ngSubmit)="addPointersMap(mapGL);">
+                    <div class="form-group">
+                        <mat-form-field class="w-100">
+                            <mat-select [(ngModel)]="TypeMarker" name="type_marker" required placeholder="Tipo de lugar">
+                                <mat-option value="tienda">Tienda</mat-option>
+                                <mat-option value="bodega">Bodega</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn-block text-center col-md-4 primary-bg-color" mat-raised-button color="primary">
+                            Cargar puntos de interés
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!--<mgl-map (dblClick)="satelitalMap($event)" [style]="'mapbox://styles/mapbox/streets-v9'" [zoom]="[9]" [center]="[-62.5115827, -37.0648487]" (load)="map = $event">
+    <mgl-marker [lngLat]="[marker.Lng, marker.Lat]" *ngFor="let marker of CoordsMarkers; let i = index">
+        <div class="marker">
+            <button (click)="RemoveMarker(i);" matTooltip="Click para borrar" mat-fab color="warn">
+                <span [ngClass]="{'mdi-store': TypeMarker === 'tienda','mdi-ticket': TypeMarker === 'bodega'}" class="mdi text-white font-25"></span>
+            </button>
+        </div>
+    </mgl-marker>
+</mgl-map>-->

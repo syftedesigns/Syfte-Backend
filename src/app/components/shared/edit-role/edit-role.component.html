@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm text-center">
+            <h5 *ngIf="updatingRole">
+                Editar {{RoleName}}
+            </h5>
+            <h5 *ngIf="!updatingRole">
+                Crear nuevo Rol
+            </h5>
+            <form ngNativeValidate #role="ngForm" (ngSubmit)="createNewRole(role);">
+                <p class="text-center">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Rol nuevo</mat-label>
+                        <input [(ngModel)]="RoleName" name="ROL_NAME" required matInput [placeholder]="RoleName">
+                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    </mat-form-field>
+                </p>
+                <fieldset>
+                    <input [(ngModel)]="rol_id" name="role_id" type="hidden">
+                </fieldset>
+                <button type="submit" mat-raised-button class="primary-bg-color btn-block text-white">Actualizar</button>
+            </form>
+        </div>
+    </div>
+</div>

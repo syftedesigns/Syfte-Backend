@@ -1,0 +1,77 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <mat-tab-group>
+                    <mat-tab label="Objeto JSON">
+                        <mat-card>
+                            <mat-card-header>
+                                <mat-card-title>
+                                    <h5>
+                                        Cargar objetos JSON&nbsp;
+                                        <span matTooltip="Asegurate de cargar un objeto JSON valido para que pueda cargar productos de forma masiva" class="mdi mdi-alert-circle"></span>
+                                    </h5>
+                                </mat-card-title>
+                            </mat-card-header>
+                            <mat-card-content>
+                                <form>
+                                    <div class="form-row">
+                                        <div class="col-sm">
+                                            <mat-form-field class="w-100">
+                                                <input required matInput>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-sm">
+                                            <button class="primary-bg-color btn-block col-md-5 text-white" mat-raised-button>Subir Archivo</button>
+                                        </div>
+                                    </div>
+                                    <div class="text-center">
+                                        <button class="primary-bg-color text-white col-md-2" mat-raised-button>Cargar</button>
+                                    </div>
+                                </form>
+                            </mat-card-content>
+                        </mat-card>
+                    </mat-tab>
+                    <mat-tab label="API REST">
+                        <mat-card>
+                            <mat-card-header>
+                                <mat-card-title>
+                                    <h5>
+                                        Consultar una API&nbsp;
+                                        <span matTooltip="Consultar una API de una empresa asociada que permita devolver todo una lista de productos con campos válidos para adaptarlo a soluclic y publicarlo automaticamente" class="mdi mdi-alert-circle"></span>
+                                    </h5>
+                                </mat-card-title>
+                            </mat-card-header>
+                            <mat-card-content>
+                                <form>
+                                    <div class="form-row">
+                                        <div class="col-sm">
+                                            <mat-form-field class="w-100">
+                                                <input placeholder="URL de consulta" required matInput>
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-sm">
+                                            <button class="primary-bg-color btn-block col-md-5 text-white" mat-raised-button>Solicitar petición</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </mat-card-content>
+                        </mat-card>
+                    </mat-tab>
+                    <mat-tab label="De forma Manual">
+                        <mat-card>
+                            <mat-card-header>
+                                <mat-card-title>
+                                    <h5 class="pointer">
+                                        Crear de forma manual&nbsp;
+                                        <span class="mdi mdi-window-restore"></span>
+                                    </h5>
+                                </mat-card-title>
+                            </mat-card-header>
+                        </mat-card>
+                    </mat-tab>
+                </mat-tab-group>
+            </div>
+        </div>
+    </div>
+</section>
